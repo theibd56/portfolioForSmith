@@ -13,32 +13,32 @@
     &__wrapper {
         margin-top: 60px;
         display: grid;
-        grid-template: repeat(3, 45px) / repeat(2, 330px);
+        grid-template: repeat(3, minmax(45px, auto)) / repeat(2, 365px);
+        grid-auto-rows: minmax(45px, auto);
         row-gap: 15px;
         justify-content: space-between;
-        padding: 0 50px;
+        padding: 0 60px;
     }
     &__item {
         display: grid;
-        grid-template: repeat(2,21px)/205px 121px;
-        justify-content: space-between;
-        align-content: space-between;
+        position: relative;
+        grid-template: repeat(2, minmax(21px, auto))/ repeat(2, auto);
+        padding-left: 25px;
         row-gap: 5px;
-        &-title {
-            position: relative;
-            padding-left: 25px;
-            @include before_circle;
-            &:before {
-                width: 15px;
-                height: 15px;
-                top: 2px;
-            }
+        &:before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: $main-color;
+            border-radius: 100%;
+            position: absolute;
+            top: 3px;
         }
         &-price {
             font-size: 14px;
             line-height: 18px;
             font-weight: 700;
-            text-align: end;
+            justify-self: end;
         }
         &-descr {
             font-size: 12px;
